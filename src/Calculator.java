@@ -45,4 +45,13 @@ public class Calculator {
     public void setList(List<Integer> list) {
         this.list = list;
     }
+
+    public void removeResult() {
+        Integer firstRemove = list.remove(0);
+    }
+
+    public void clearList() {
+        list.clear();
+    }
+
 }
