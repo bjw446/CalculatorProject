@@ -44,8 +44,10 @@ public class App {
                 System.out.println("원하는 메뉴를 입력해주세요");
                 System.out.println("1. 다시 계산 하기");
                 System.out.println("2. 계산 결과 보기");
-                System.out.println("3. 계산기 종료 하기");
-                System.out.println("====================");
+                System.out.println("3. 첫 번째 계산 결과 지우기");
+                System.out.println("4. 전체 계산 결과 지우기");
+                System.out.println("5. 계산기 종료 하기");
+                                System.out.println("====================");
 
                 int choice;
                 try {
@@ -63,6 +65,14 @@ public class App {
                         System.out.println("지금까지 계산한 결과 : \n" + calculator.getList());
                         break;
                     case 3 :
+                        calculator.removeResult();
+                        System.out.println("남아있는 결과 : \n" + calculator.getList());
+                        break;
+                    case 4 :
+                        calculator.clearList();
+                        System.out.println("전체 계산 결과를 삭제하였습니다. \n" + calculator.getList());
+                        break;
+                    case 5 :
                         System.out.println("계산기를 종료합니다.");
                         sc.close();
                         return;
