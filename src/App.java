@@ -2,6 +2,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class App {
+
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Calculator calculator = new Calculator();
@@ -14,7 +16,7 @@ public class App {
 
             int num1;
             int num2;
-            char operator;
+            String operator;
 
             try {
                 System.out.println("첫 번째 숫자를 입력하세요 : ");
@@ -24,9 +26,17 @@ public class App {
                 sc.nextLine();
                 continue;
             }
-            System.out.println("사칙연산 기호를 입력하세요 : ");
-            operator = sc.next().charAt(0);
-            sc.nextLine();
+
+            try {
+
+                System.out.println("사칙연산 기호를 입력하세요 : ");
+                operator = sc.next();
+            } catch (IllegalArgumentException e) {
+                System.out.println("잘못된 연산자 입니다.");
+                sc.nextLine();
+                continue;
+            }
+
 
             try {
                 System.out.println("두 번째 숫자를 입력하세요 : ");
@@ -37,7 +47,7 @@ public class App {
                 continue;
             }
 
-            calculator.calculate(num1, num2, operator);
+            calculator.calculate(num1, num2, OperatorType.changeOk(operator));
             boolean menu = true;
             while (menu) {
                 System.out.println("\n====================");

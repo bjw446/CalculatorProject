@@ -5,23 +5,25 @@ public class Calculator {
     private List<Integer> list = new ArrayList<>();
 
 
-    public int calculate(int num1, int num2, char operator) {
+
+
+    public int calculate(int num1, int num2, OperatorType operator) {
 
         int result = 0;
         switch (operator) {
-            case '+':
+            case PLUS :
                 result = num1 + num2;
                 System.out.println("결과는 : " + result + " 입니다.");
                 break;
-            case '-':
+            case MINUS :
                 result = num1 - num2;
                 System.out.println("결과는 : " + result + " 입니다.");
                 break;
-            case '*':
+            case MULTIPLY :
                 result = num1 * num2;
                 System.out.println("결과는 : " + result + " 입니다.");
                 break;
-            case '/':
+            case DIVIDE :
                 try {
                      result = num1 / num2;
                      System.out.println("결과는 : " + result + " 입니다.");
@@ -47,7 +49,12 @@ public class Calculator {
     }
 
     public void removeResult() {
-        Integer firstRemove = list.remove(0);
+        try {
+            Integer firstRemove = list.remove(0);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("저장된 결과가 없습니다.");
+        }
+
     }
 
     public void clearList() {
