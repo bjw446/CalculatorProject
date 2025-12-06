@@ -27,16 +27,8 @@ public class App {
                 continue;
             }
 
-            try {
-
                 System.out.println("사칙연산 기호를 입력하세요 : ");
                 operator = sc.next();
-            } catch (IllegalArgumentException e) {
-                System.out.println("잘못된 연산자 입니다.");
-                sc.nextLine();
-                continue;
-            }
-
 
             try {
                 System.out.println("두 번째 숫자를 입력하세요 : ");
